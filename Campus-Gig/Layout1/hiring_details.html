@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Gig Job Posting</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #fff;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin-right: 15px;
+        }
+
+        .user-actions {
+            display: flex;
+            align-items: center;
+        }
+
+        .user-actions > * {
+            margin-left: 10px;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .job-details-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .post-button {
+            background-color: rgb(4, 4, 145);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        .edit-icon {
+            color: #05407f; /* Set the color of the edit icon (pencil) to blue */
+            cursor: pointer;
+        }
+
+        .edit-icon img {
+            width: 16px; /* Set a small size for the pencil icon */
+            height: 16px;
+            vertical-align: middle; /* Align the icon vertically with the text */
+        }
+
+        .job-section {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fff;
+            width: 100%;
+            position: relative; /* Allow for absolute positioning within */
+        }
+
+        .job-section h3 {
+            margin-top: 0;
+            position: relative;
+            padding-right: 30px; /* Add some padding to avoid overlap with the icon */
+        }
+
+        .edit-icon-container {
+            position: absolute;
+            top: 10px; /* Position the icon near the top */
+            right: 15px; /* Position the icon to the right */
+        }
+
+        .section-divider {
+            border-top: 2px solid #e0e0e0;
+            margin: 20px 0;
+        }
+
+        p {
+            color: #555; /* Set the color of the <p> tags to light black */
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Campus Gig Logo"> <!-- Replace with actual logo path -->
+        </div>
+       
+        <div class="user-actions">
+            <input type="text" placeholder="Search">
+            <span>🔔</span>
+            <span>👤</span>
+        </div>
+    </header>
+
+    <main>
+        <div class="job-details-header">
+            <h1>Job details</h1>
+            <button class="post-button">Post this job</button>
+        </div>
+
+        <div class="job-section">
+            <h3>Job Title</h3>
+            <div class="edit-icon-container">
+                <span class="edit-icon" onclick="editContent(this)">
+                    <img src="pencil_logo.png" alt="Edit">
+                </span>
+            </div>
+            <p>Please provide a concise title for the job posting. This will help potential freelancers understand the nature of the job at a glance</p>
+        </div>            
+           
+        <div class="section-divider"></div>
+
+        <div class="job-section" id="job-description">
+            <h3>Description of the Job</h3>
+            <div class="edit-icon-container">
+                <span class="edit-icon" onclick="editContent(this)">
+                    <img src="pencil_logo.png" alt="Edit">
+                </span>
+            </div>
+            <p>Provide a detailed description of the job. This helps freelancers understand the scope, requirements, and expectations of the project.</p>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <div class="job-section">
+            <h3>Skills Required</h3>
+            <div class="edit-icon-container">
+                <span class="edit-icon" onclick="editContent(this)">
+                    <img src="pencil_logo.png" alt="Edit">
+                </span>
+            </div>
+            <p>JavaScript, Web Design, HTML, CSS, HTML5</p>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <div class="job-section">
+            <h3>Work Duration</h3>
+            <div class="edit-icon-container">
+                <span class="edit-icon" onclick="editContent(this)">
+                    <img src="pencil_logo.png" alt="Edit">
+                </span>
+            </div>
+            <p>Define the expected duration for the job. This helps freelancers gauge their availability and commitment.</p>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <div class="job-section">
+            <h3>Experience Level Needed</h3>
+            <div class="edit-icon-container">
+                <span class="edit-icon" onclick="editContent(this)">
+                    <img src="pencil_logo.png" alt="Edit">
+                </span>
+            </div>
+            <p>Indicate the required experience level for the job. This helps to ensure that the job is matched with freelancers who have the necessary background.</p>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <div class="job-section">
+            <h3>Budget</h3>
+            <div class="edit-icon-container">
+                <span class="edit-icon" onclick="editContent(this)">
+                    <img src="pencil_logo.png" alt="Edit">
+                </span>
+            </div>
+            <p>Specify the rate for the job. This helps freelancers understand if the compensation aligns with their expectations.</p>
+        </div>
+    </main>
+
+    <script>
+        function editContent(icon) {
+            const content = icon.closest('.job-section').querySelector('p');
+            const currentText = content.innerText || content.textContent;
+            const newText = prompt('Edit content:', currentText);
+            if (newText !== null && newText.trim() !== '') {
+                content.innerHTML = newText;
+            }
+        }
+        
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get the button element
+        var button = document.querySelector('.post-button');
+
+        // Add a click event listener to the button
+        button.addEventListener('click', function() {
+            // Navigate to the target page
+            window.location.href = 'successfull.html'; // Replace with your actual target URL
+        });
+    });
+
+
+    </script>
+</body>
+
+</html>

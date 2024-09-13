@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusGig</title>
+    <link rel="icon" type="image/png" href="favcon.png">
+    <style>
+        /* Base styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white; /* Change entire background to white */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Header styles */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #fff;
+            border-bottom: 2px solid #ddd; /* Adds a line below the header */
+        }
+
+        .logo {
+            margin-right: auto; /* Pushes the logo to the left */
+        }
+
+        .logo-img {
+            height: 40px; /* Adjust the height as needed */
+            width: auto; /* Maintain aspect ratio */
+        }
+
+        .nav {
+            display: flex;
+            gap: 20px;
+            margin-left: 20px; /* Adds spacing after the logo */
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+        }
+
+        .nav a:hover {
+            text-decoration: underline;
+        }
+
+        .icons {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-left: 40px; /* Adds space between the Contact link and search bar */
+        }
+
+        .search-container {
+            width: 200px;
+            padding-right: 20px;
+        }
+
+        .search-bar {
+            width: 100%;
+            padding: 8px;
+            border-radius: 20px;
+            border: 1px solid #ddd;
+        }
+
+        .icon {
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        /* Main container */
+        .container {
+            padding: 20px;
+            flex: 1;
+            background-color: white; /* Set container background to white */
+        }
+
+        .title {
+            font-size: 30px; /* Increase the size of the Jobs title */
+            color: rgb(2, 2, 129);
+            margin-bottom: 20px;
+        }
+
+        /* Container for post job button and job listing */
+        .post-job-job-listing-container {
+            display: flex;
+            align-items: flex-start; /* Align items to the left */
+            gap: 20px; /* Space between button and job listings */
+            margin-bottom: 20px;
+        }
+
+        /* Post a job button styles */
+        .post-job-btn {
+            background-color: #e0e0e0; /* Change post job block color */
+            border: none;
+            padding: 20px;
+            width: 220px; /* Set same width */
+            height: 220px; /* Set same height */
+            font-size: 16px;
+            border-radius: 10px;
+            cursor: pointer;
+            display: block;
+            box-sizing: border-box;
+        }
+
+        /* Job listing styles */
+        .job-listing {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start; /* Align items to the left */
+        }
+
+        .job-card {
+            background-color: white; /* Set the background to white */
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            width: 220px; /* Set same width */
+            height: 220px; /* Set same height */
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        .job-card h2 {
+            font-size: 18px;
+            margin: 0 0 10px;
+            position: relative; /* Ensure title is at the top, not the bottom */
+        }
+
+        .job-card p {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+        }
+
+        .dropdown {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .dropdown-btn {
+            background: none;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 120px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            border-radius: 5px;
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 8px 16px;
+            text-decoration: none;
+            display: block;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        /* Footer styles */
+        footer {
+            padding: 10px;
+            background-color: #fff;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer .left {
+            margin-left: 10px;
+        }
+
+        footer .right {
+            margin-right: 10px;
+        }
+
+        footer a {
+            color: #333;
+            text-decoration: none;
+            margin-left: 10px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <div class="header">
+        <div class="logo">
+            <img src="logo.png" alt="CampusGig Logo" class="logo-img">
+        </div>
+        <nav class="nav">
+            <a href="#">Home</a>
+            <a href="#">Jobs</a>
+            <a href="#">Contact</a>
+        </nav>
+        <div class="icons">
+            <div class="search-container">
+                <input type="text" class="search-bar" placeholder="Search">
+            </div>
+            <span  class="icon">👤 </span>
+            <span class="icon">🔔</span>
+           
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1 class="title">Jobs</h1>
+        <div class="post-job-job-listing-container"><a href="hiring_details.html">
+            <button class="post-job-btn">+ Post a Job</button></a>
+            <div class="job-listing">
+                <div class="job-card">
+                    <h2>Job Title</h2>
+                    <p>Job description</p>
+                    <div class="dropdown">
+                        <button class="dropdown-btn">...</button>
+                        <div class="dropdown-content">
+                            <a href="#">Edit Job</a>
+                            <a href="#">Remove Job</a>
+                            <a href="#">Delete Job</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="left">
+            <p>&copy; CampusGig</p>
+        </div>
+        <div class="right">
+            <a href="#">How it works</a>
+            <a href="#">Support</a>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Dropdown Menu -->
+    <script>
+        // Toggle dropdown menu visibility
+        document.querySelectorAll('.dropdown-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const dropdownContent = button.nextElementSibling;
+                dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+
+        // Close dropdowns if clicked outside
+        window.addEventListener('click', event => {
+            if (!event.target.matches('.dropdown-btn')) {
+                document.querySelectorAll('.dropdown-content').forEach(dropdown => {
+                    dropdown.style.display = 'none';
+                });
+            }
+        });
+       
+        document.addEventListener('DOMContentLoaded', function() {
+            var button = document.querySelector('.post-job-btn');
+
+            button.addEventListener('click', function() {
+                window.location.href = 'hiring_details.html'; // Replace with your target URL
+            });
+        });
+        document.addEventListener('DOMContentLoaded', function() {
+            var icon = document.querySelector('.icon');
+
+            icon.addEventListener('click', function() {
+                window.location.href = 'user_profile.html'; // Replace with your target URL
+            });
+        });
+    </script>
+    
+    
+</body>
+</html>

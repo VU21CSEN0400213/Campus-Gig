@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Gig Job Search</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .nav-bar {
+            background-color: #ffffff; /* White color for navigation bar */
+            border-bottom: 1px solid #ddd; /* Light grey color for border */
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #007bff; /* Blue color for logo text */
+        }
+        .nav-bar .logo img {
+            height: 40px; /* Adjust height as needed */
+            width: auto; /* Maintain aspect ratio */
+            display: block;
+        }
+        .nav-links { 
+            display: flex; 
+            gap: 20px; 
+        }
+        .nav-links a { 
+            text-decoration: none; 
+            color: #007bff; /* Blue color for links */
+            font-size: 16px;
+        }
+        .nav-links a:hover {
+            text-decoration: underline;
+            color: #0056b3; /* Darker blue color on hover */
+        }
+        .nav-right { 
+            display: flex; 
+            gap: 15px; 
+            align-items: center; 
+        }
+        .search-bar { 
+            padding: 8px; 
+            border: 1px solid #ccc; 
+            border-radius: 4px; 
+            width: 200px;
+        }
+        .icon { 
+            width: 35px; 
+            height: 35px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            background-color: #f0f0f0; /* Light grey background for icons */
+            border-radius: 50%; 
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+        .icon img {
+            width: 20px;
+            height: 20px;
+        }
+        .container { 
+            max-width: 1200px; 
+            margin: 20px auto; 
+            padding: 20px; 
+            display: flex;
+            gap: 20px;
+        }
+        .sidebar {
+            width: 25%;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #ffffff;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .filter-group {
+            margin-bottom: 20px;
+        }
+        .filter-group h3 {
+            margin-bottom: 10px;
+            font-size: 20px;
+            color: #007bff; /* Blue color for filter headings */
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 5px;
+        }
+        .filter-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+        .filter-group input {
+            margin-right: 10px;
+        }
+        .content {
+            width: 75%;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .job-post {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .job-post h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        .job-post p {
+            margin: 5px 0;
+            font-size: 16px;
+        }
+        .job-post .logo {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: #ddd;
+            border-radius: 50%;
+        }
+        .job-details {
+            margin-bottom: 10px;
+        }
+        @media (max-width: 768px) {
+            .nav-bar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .nav-links {
+                flex-direction: column;
+                align-items: flex-start;
+                margin-bottom: 10px;
+            }
+            .nav-right {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .container {
+                flex-direction: column;
+                gap: 0;
+            }
+            .sidebar {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid #ddd;
+                margin-bottom: 20px;
+            }
+            .content {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="nav-bar">
+    <div class="logo">
+        <img src="logo.png" alt="Campusgig Logo">
+    </div>
+    <div class="nav-links">
+        <a href="JobPost.html">Apply_Jobs</a>
+        <a href="#">Talent</a>
+        <a href="#">Reports</a>
+        <a href="#">Messages</a>
+    </div>
+    <div class="nav-right">
+        <input type="text" class="search-bar" placeholder="Search">
+        <select>
+            <option>Talent</option>
+        </select>
+        <div class="icon" aria-label="Help">?</div>
+        <div class="icon" aria-label="Favorites">♡</div>
+        <div class="icon" aria-label="Notifications">🔔</div>
+        <div class="icon" aria-label="Profile">👤</div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="sidebar">
+        <div class="filter-group">
+            <h3>Price Range</h3>
+            <label><input type="checkbox" value="0-1000"> 0 to 1,000</label>
+            <label><input type="checkbox" value="1000-5000"> 1,000 to 5,000</label>
+            <label><input type="checkbox" value="5000-10000"> 5,000 to 10,000</label>
+            <label><input type="checkbox" value="10000-15000"> 10,000 to 15,000</label>
+        </div>
+        <div class="filter-group">
+            <h3>Experience</h3>
+            <label><input type="checkbox" value="0-years"> 0 years</label>
+            <label><input type="checkbox" value="1-year"> 1 year</label>
+            <label><input type="checkbox" value="2-years"> 2 years</label>
+            <label><input type="checkbox" value="3-years"> 3 years</label>
+            <label><input type="checkbox" value="4-years"> 4 years</label>
+            <label><input type="checkbox" value="5+-years"> 5+ years</label>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="job-post">
+            <div class="logo"></div>
+            <h2>Job Title 1</h2>
+            <div class="job-details">
+                <p><strong>Company Name:</strong> Company XYZ</p>
+                <p><strong>Job Description:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p><strong>Skills Required:</strong> Skill 1, Skill 2, Skill 3</p>
+                <p><strong>Pay:</strong> $5000 - $10000</p>
+            </div>
+        </div>
+        <div class="job-post">
+            <div class="logo"></div>
+            <h2>Job Title 2</h2>
+            <div class="job-details">
+                <p><strong>Company Name:</strong> Company ABC</p>
+                <p><strong>Job Description:</strong> Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p><strong>Skills Required:</strong> Skill A, Skill B, Skill C</p>
+                <p><strong>Pay:</strong> $6000 - $12000</p>
+            </div>
+        </div>
+        <div class="job-post">
+            <div class="logo"></div>
+            <h2>Job Title 3</h2>
+            <div class="job-details">
+                <p><strong>Company Name:</strong> Company DEF</p>
+                <p><strong>Job Description:</strong> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <p><strong>Skills Required:</strong> Skill X, Skill Y, Skill Z</p>
+                <p><strong>Pay:</strong> $7000 - $15000</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
