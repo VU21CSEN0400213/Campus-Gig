@@ -1,0 +1,99 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    padding: 20px;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .job-title h2 {
+    margin: 0;
+  }
+  
+  .job-title p {
+    font-size: 14px;
+    color: gray;
+  }
+  
+  .search-bar input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 250px;
+  }
+  
+  .filters {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  button {
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #eaeaea;
+  }
+  
+  .candidate-list {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .applied-label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .candidate {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .candidate-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .candidate-info .name {
+    font-weight: bold;
+    font-size: 18px;
+  }
+  
+  .candidate-info .role {
+    font-size: 14px;
+    color: gray;
+  }
+  
+  .candidate-info .time {
+    font-size: 12px;
+    color: #999;
+  }
+  
+  .highlight-star {
+    font-size: 24px;
+    color: gold;
+  }
+  
